@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="it"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Gioco di Distrazione&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f0f0f0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#game-container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 8px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#timer {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 3rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#score-display {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #777;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#instructions {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#tap-button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #007bff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background-color 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#tap-button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #0056b3;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#results {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #28a745;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="game-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Gioco di Distrazione&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="instructions"&gt;Tappa il pulsante esattamente quando il cronometro segna un cambio di secondo (es. 1.000, 2.000, 3.000...)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="timer"&gt;0.000&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="score-display"&gt;Punteggio: 0&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="tap-button"&gt;Tappa!&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="results"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const timerDisplay = document.getElementById('timer');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const scoreDisplay = document.getElementById('score-display');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const tapButton = document.getElementById('tap-button');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const resultsDisplay = document.getElementById('results');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>let startTime = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let timerInterval = null;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let score = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function startTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startTime = Date.now();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>timerInterval = setInterval(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const elapsedTime = (Date.now() - startTime) / 1000;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>timerDisplay.textContent = elapsedTime.toFixed(3);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 10);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function stopTimer() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>clearInterval(timerInterval);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>timerInterval = null;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function resetGame() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>stopTimer();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>timerDisplay.textContent = '0.000';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resultsDisplay.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>startTimer();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function calculateScore(time) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const decimalPart = time - Math.floor(time);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const deviation = Math.abs(decimalPart - 0); // L'obiettivo è essere il più vicino a .000</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (deviation &lt; 0.05) { // Eccellente (entro 50ms)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return 10;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (deviation &lt; 0.1) { // Buono (entro 100ms)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return 5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else if (deviation &lt; 0.2) { // Discreto (entro 200ms)</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return 2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return 0; // Fuori tempo</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>tapButton.addEventListener('click', () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!timerInterval) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>startTimer();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>stopTimer();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const tapTime = parseFloat(timerDisplay.textContent);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const points = calculateScore(tapTime);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>score += points;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scoreDisplay.textContent = `Punteggio: ${score}`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (points &gt; 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultsDisplay.textContent = `Hai beccato il tempo! Punti: +${points}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultsDisplay.style.color = '#28a745';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultsDisplay.textContent = `Ritardo...`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>resultsDisplay.style.color = '#dc3545';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(resetGame, 1500); // Resetta dopo 1.5 secondi per dare il tempo di vedere il risultato</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Avvia il gioco al primo click sul pulsante</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tapButton.textContent = "Inizia!";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
